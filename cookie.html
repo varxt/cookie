@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        //设置cookie
+        function setCookie(key,vaule,time){
+            if(time){
+                var d = new Date();
+                d.setDate = (d.getTime()+ time);
+
+                document.cookie = key +'='+vaule+';expires='+d;
+            }else{
+                document.cookie = key +'='+vaule;
+            }
+        }
+
+        // setCookie('name','xt',300000)
+        setCookie('name','lp',300000)
+
+        //获取cookie
+        function getCookie(key){
+            let cookieArr = document.cookie.split(',');
+            let temp = '';        
+            cookieArr.forEach((e)=>{
+                let arr = e.split('=');
+                if(arr[0]==key){
+                    temp = arr[1];
+                }
+            })
+            return temp?temp:null;
+        }
+        // console.log(getCookie('name'));
+
+        // //删除cookie
+        // function removeCookie(key,val){
+        //     setCookie(key,val,-1)
+        // }
+        // removeCookie('name','xt');
+
+        function removeCookie(key,vaule){
+            setCookie(key,vaule,-1);
+        }
+
+        removeCookie('name','xt');
+
+    </script>
+    
+</body>
+</html>
